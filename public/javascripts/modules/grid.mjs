@@ -69,7 +69,7 @@ export function gridColoringFunc(){
     let playerColor=localStorage.getItem("playerColor")
     let positionColor = {"boxName":box, "boxColor":playerColor};
     console.log(positionColor);
-    
+
     if(document.getElementById(box).style.backgroundColor.match(playerColor)){
         console.log(playerColor);
         let backColor="white";
@@ -96,6 +96,10 @@ export function gridColoringFunc(){
     });     
 }); 
 } 
+
+
+
+ 
 // reading data from database for other players to see which box is colored and realtime app 
 
     fetch("http://localhost:3000/users")
@@ -112,6 +116,30 @@ socket.on("boxColor",function(boxColor){
 socket.on("selectedColor",function(selectedColor){
 document.getElementById(selectedColor.color).style.display="none" 
 })
+
+
+export function facitFunc(){
+document.getElementById("facit").addEventListener("click",function(){
+    fetch("http://localhost:3000/users")
+    .then(res=>res.json())
+    .then(finishedGrid=>{
+        let gameOver=finishedGrid;
+        console.log(gameOver);
+        fetch("http://localhost:3000/users/finish", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(gameOver)
+        })
+        .then(res=>res.json())
+        .then(game=>{
+        console.log("facit",game.facit);
+        })   
+    });          
+    })
+}
 
 
 

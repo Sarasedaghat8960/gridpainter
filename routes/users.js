@@ -27,4 +27,26 @@ router.post("/color", function(req, res){
  
   })
 });
+
+
+router.post("/finish", function(req, res){
+  let gameOvered=req.body;
+ // console.log("gameOvered from post in backend:",gameOvered);
+  req.app.locals.db.collection("facit2").find().toArray()
+  .then(checkGame => {
+    //console.log("checkgame",checkGame);
+    let score = 0
+    for(let i=0;i<=224;i++){
+       if(gameOvered[i].boxName==checkGame[i].boxName && gameOvered[i].boxColor==checkGame[i].boxColor ){
+         score++
+       }
+    }
+   console.log(score);
+  
+  
+  })  
+  res.json({"facit":"checked"})
+ 
+ 
+});
 module.exports = router;

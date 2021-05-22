@@ -1,4 +1,4 @@
-import { makeGridFunc , ShowPlayerName  ,  gridColoringFunc } from './grid.mjs';
+import { makeGridFunc , ShowPlayerName  ,  gridColoringFunc  , facitFunc } from './grid.mjs';
 import {buildChat, sendMessage} from './chat.mjs';
 
 export default function loadGrid () {
@@ -13,9 +13,11 @@ export default function loadGrid () {
 
     // coloring the grid 
     gridColoringFunc();
+   
 
     buildChat();
     sendMessage();
-
+   //check the game after click on finish button  
+    facitFunc()
 
 }
