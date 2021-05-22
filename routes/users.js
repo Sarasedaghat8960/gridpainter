@@ -41,12 +41,9 @@ router.post("/finish", function(req, res){
          score++
        }
     }
+    let percent=score*100/225
    console.log(score);
-  
-  
+   res.json([{"score":score} ,{  "percent":percent}])
   })  
-  res.json({"facit":"checked"})
- 
- 
 });
 module.exports = router;

@@ -124,7 +124,7 @@ document.getElementById("facit").addEventListener("click",function(){
     .then(res=>res.json())
     .then(finishedGrid=>{
         let gameOver=finishedGrid;
-        console.log(gameOver);
+        //console.log(gameOver);
         fetch("http://localhost:3000/users/finish", {
         method: "POST",
         headers: {
@@ -135,7 +135,8 @@ document.getElementById("facit").addEventListener("click",function(){
         })
         .then(res=>res.json())
         .then(game=>{
-        console.log("facit",game.facit);
+      //  console.log("facit",game.facit);
+        console.log(game);
         })   
     });          
     })
