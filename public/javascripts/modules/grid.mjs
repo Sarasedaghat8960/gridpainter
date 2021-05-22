@@ -135,8 +135,8 @@ document.getElementById("facit").addEventListener("click",function(){
         })
         .then(res=>res.json())
         .then(game=>{
-      //  console.log("facit",game.facit);
-        console.log(game);
+        console.log("Score", game[0].score);
+        console.log("Percent:",game[1].percent);
         })   
     });          
     })

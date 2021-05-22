@@ -43,7 +43,8 @@ router.post("/finish", function(req, res){
     }
     let percent=score*100/225
    console.log(score);
-   res.json([{"score":score} ,{  "percent":percent}])
+   res.json([{"score":score},{"percent":percent}])
+   //res.json([{"score":score,"percent":percent}])
   })  
 });
 module.exports = router;
